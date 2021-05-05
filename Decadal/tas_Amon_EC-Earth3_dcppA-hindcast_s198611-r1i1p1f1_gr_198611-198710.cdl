@@ -1,0 +1,122 @@
+netcdf tas_Amon_EC-Earth3_dcppA-hindcast_s198611-r1i1p1f1_gr_198611-198710 {
+dimensions:
+	time = UNLIMITED ; // (12 currently)
+	lat = 256 ;
+	lon = 512 ;
+	bnds = 2 ;
+variables:
+	int reftime ;
+		reftime:long_name = "Start date of the forecast" ;
+		reftime:standard_name = "forecast_reference_time" ;
+		reftime:units = "days since 1850-01-01" ;
+		reftime:calendar = "gregorian" ;
+	double leadtime(time) ;
+		leadtime:long_name = "Time elapsed since the start of the forecast" ;
+		leadtime:standard_name = "forecast_period" ;
+		leadtime:units = "days" ;
+	int realization ;
+		realization:long_name = "realization" ;
+		realization:comment = "For more information on the ripf, refer to the variant_label, initialization_description, physics_description and forcing_description global attributes" ;
+	double time(time) ;
+		time:bounds = "time_bnds" ;
+		time:axis = "T" ;
+		time:standard_name = "time" ;
+		time:units = "days since 1850-01-01" ;
+		time:calendar = "gregorian" ;
+		time:long_name = "valid_time" ;
+	double time_bnds(time, bnds) ;
+		time_bnds:units = "days since 1850-01-01" ;
+	double lat(lat) ;
+		lat:bounds = "lat_bnds" ;
+		lat:units = "degrees_north" ;
+		lat:axis = "Y" ;
+		lat:long_name = "latitude" ;
+		lat:standard_name = "latitude" ;
+	double lat_bnds(lat, bnds) ;
+	double lon(lon) ;
+		lon:bounds = "lon_bnds" ;
+		lon:units = "degrees_east" ;
+		lon:axis = "X" ;
+		lon:long_name = "Longitude" ;
+		lon:standard_name = "longitude" ;
+	double lon_bnds(lon, bnds) ;
+	double height ;
+		height:units = "m" ;
+		height:axis = "Z" ;
+		height:positive = "up" ;
+		height:long_name = "height" ;
+		height:standard_name = "height" ;
+	float tas(time, lat, lon) ;
+		tas:standard_name = "air_temperature" ;
+		tas:long_name = "Near-Surface Air Temperature" ;
+		tas:comment = "near-surface (usually, 2 meter) air temperature" ;
+		tas:units = "K" ;
+		tas:cell_methods = "area: time: mean" ;
+		tas:cell_measures = "area: areacella" ;
+		tas:history = "2019-05-11T15:53:32Z altered by CMOR: Treated scalar dimension: \'height\'. 2019-05-11T15:53:32Z altered by CMOR: Reordered dimensions, original order: lat lon time." ;
+		tas:missing_value = 1.e+20f ;
+		tas:_FillValue = 1.e+20f ;
+		tas:coordinates = "height reftime leadtime" ;
+
+// global attributes:
+		:Conventions = "CF-1.7 CMIP-6.2" ;
+		:activity_id = "DCPP" ;
+		:branch_method = "no parent" ;
+		:branch_time = 0. ;
+		:branch_time_in_child = 0. ;
+		:branch_time_in_parent = 0. ;
+		:contact = "cmip6-data@ec-earth.org" ;
+		:creation_date = "2019-05-11T15:53:33Z" ;
+		:data_specs_version = "01.00.27" ;
+		:experiment = "hindcast initialized based on observations and using historical forcing" ;
+		:experiment_id = "dcppA-hindcast" ;
+		:external_variables = "areacella" ;
+		:forcing_index = 1 ;
+		:frequency = "mon" ;
+		:further_info_url = "https://furtherinfo.es-doc.org/CMIP6.EC-Earth-Consortium.EC-Earth3.dcppA-hindcast.none.r1i1p1f1" ;
+		:grid = "ORCA1T255" ;
+		:grid_label = "gr" ;
+		:initialization_index = 1 ;
+		:institution = "AEMET, Spain; BSC, Spain; CNR-ISAC, Italy; DMI, Denmark; ENEA, Italy; FMI, Finland; Geomar, Germany; ICHEC, Ireland; ICTP, Italy; IDL, Portugal; IMAU, The Netherlands; IPMA, Portugal; KIT, Karlsruhe, Germany; KNMI, The Netherlands; Lund University, Sweden; Met Eireann, Ireland; NLeSC, The Netherlands; NTNU, Norway; Oxford University, UK; surfSARA, The Netherlands; SMHI, Sweden; Stockholm University, Sweden; Unite ASTR, Belgium; University College Dublin, Ireland; University of Bergen, Norway; University of Copenhagen, Denmark; University of Helsinki, Finland; University of Santiago de Compostela, Spain; Uppsala University, Sweden; Utrecht University, The Netherlands; Vrije Universiteit Amsterdam, the Netherlands; Wageningen University, The Netherlands. Mailing address: EC-Earth consortium, Rossby Center, Swedish Meteorological and Hydrological Institute/SMHI, SE-601 76 Norrkoping, Sweden" ;
+		:institution_id = "EC-Earth-Consortium" ;
+		:mip_era = "CMIP6" ;
+		:parent_activity_id = "no parent" ;
+		:parent_experiment_id = "no parent" ;
+		:parent_mip_era = "no parent" ;
+		:parent_source_id = "no parent" ;
+		:parent_sub_experiment_id = "no parent" ;
+		:parent_time_units = "no parent" ;
+		:parent_variant_label = "no parent" ;
+		:physics_index = 1 ;
+		:product = "model-output" ;
+		:realization_index = 1 ;
+		:realm = "atmos" ;
+		:source = "EC-Earth3 (2019): \n",
+			"aerosol: none\n",
+			"atmos: IFS cy36r4 (TL255, linearly reduced Gaussian grid equivalent to 512 x 256 longitude/latitude; 91 levels; top level 0.01 hPa)\n",
+			"atmosChem: none\n",
+			"land: HTESSEL (land surface scheme built in IFS)\n",
+			"landIce: none\n",
+			"ocean: NEMO3.6 (ORCA1 tripolar primarily 1 deg with meridional refinement down to 1/3 degree in the tropics; 362 x 292 longitude/latitude; 75 levels; top grid cell 0-1 m)\n",
+			"ocnBgchem: none\n",
+			"seaIce: LIM3" ;
+		:source_id = "EC-Earth3" ;
+		:source_type = "AOGCM" ;
+		:sub_experiment = "initialized near end of year 1986" ;
+		:table_id = "Amon" ;
+		:table_info = "Creation Date:(20 July 2018) MD5:b534c310c852aa1f0b00e68e90486e7a" ;
+		:title = "EC-Earth3 output prepared for CMIP6" ;
+		:tracking_id = "hdl:21.14100/b74313cc-6c6b-4b61-95f6-6d601b02bace" ;
+		:variable_id = "tas" ;
+		:variant_label = "r1i1p1f1" ;
+		:license = "CMIP6 model data produced by EC-Earth-Consortium is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (https://creativecommons.org/licenses). Consult https://pcmdi.llnl.gov/CMIP6/TermsOfUse for terms of use governing CMIP6 output, including citation requirements and proper acknowledgment. Further information about this data, including some limitations, can be found via the further_info_url (recorded as a global attribute in this file) . The data producers and data providers make no warranty, either express or implied, including, but not limited to, warranties of merchantability and fitness for a particular purpose. All liabilities arising from the supply of the information (including any liability arising in negligence) are excluded to the fullest extent permitted by law." ;
+		:cmor_version = "3.4.0" ;
+		:variant_info = "Atmosphere initialization based on full-fields from ERA-Interim (s1979-s2018) or ERA-40 (s1960-s1978); ocean/sea-ice initialization based on full-fields from NEMO/LIM assimilation run nudged towards ORA-S4 (s1960-s2018)" ;
+		:nominal_resolution = "100 km" ;
+		:nco_openmp_thread_number = 1 ;
+		:forcing_description = "Free text describing the forcings" ;
+		:physics_description = "Free text describing the physics method" ;
+		:initialization_description = "Free text describing the initialization method" ;
+		:startdate = "s198611" ;
+		:sub_experiment_id = "s198611" ;
+}
