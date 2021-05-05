@@ -1,0 +1,32 @@
+{
+    "header": {
+        "application:": "",
+        "Author": "",
+        "Institution": "",
+        "Date": "",
+        "version": "",
+        "QC_template": "version 2: 2021-03-05"
+    },
+    "datasets": {
+        "hdl:21.14100/80538650-b2b2-3ee8-be87-66994c3ce895": {
+            "dset_id": "CMIP6.ScenarioMIP.MOHC.UKESM1-0-LL.ssp119.r1i1p1f2.Lmon.mrro.gn.v20190830",
+            "dset_qc_status": "",
+            "dset_error_severity": "",
+            "dset_error_message": "",
+            "files": {
+                "hdl:21.14100/2c724032-2d5e-4d8a-b19f-183f4ac851ad": {
+                    "filename": "mrro_Lmon_UKESM1-0-LL_ssp119_r1i1p1f2_gn_201501-204912.nc",
+                    "file_qc_status": "",
+                    "file_error_severity": "",
+                    "file_error_message": ""
+                },
+                "hdl:21.14100/6e1af4b0-b5f4-4df7-be15-11a68a4605ce": {
+                    "filename": "mrro_Lmon_UKESM1-0-LL_ssp119_r1i1p1f2_gn_205001-210012.nc",
+                    "file_qc_status": "",
+                    "file_error_severity": "",
+                    "file_error_message": ""
+                }
+            }
+        }
+    }
+}
