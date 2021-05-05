@@ -1,0 +1,30 @@
+
+#
+# The header section contains some basic provenance issues
+#
+header:
+        application: Name of the software application used to generate the report,
+        Author: Name of author,
+        Institution: Institution name
+        Date: Date, ISO 8601 format
+        version: Version of this report .. provider's reference.
+        QC_template: version 2: 2021-03-05
+
+#
+# datasets contains a dictionary, with one entry per dataset keyed on the dataset PID
+#
+datasets: 
+#
+# for each dataset, four text entries and a files entry, containing a report for each file
+        <dataset_pid>: 
+            dset_id: ESGF Dataset id
+            dset_qc_status: pass|fail|  -- pass, fail, or blank (dataset not tested)
+            dset_error_severity: na|minor|major|unknown
+            dset_error_message: Free text
+            files:
+                <file_pid>: 
+                    filename: Name of file
+                    file_qc_status: pass|fail|  -- pass, fail, or blank (file not tested)
+                    file_error_severity: na|minor|major|unknown
+                    file_error_message: Free text
+               
